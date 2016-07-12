@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   #users route
   resources :users, only: [:new, :create, :show]
 
+  #sessions route
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
