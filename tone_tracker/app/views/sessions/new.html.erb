@@ -1,6 +1,6 @@
 <h1>User Login</h1>
 
-<!-- add error handling  -->
+<%= render partial: 'shared/error_messages', locals: { object: @user } %>
 
 <%= form_for :login do |f| %>
 
