@@ -78,4 +78,11 @@ describe UsersController do
       end
     end
   end
+
+  describe "GET #show" do
+    it "assigns the requested User as @user" do
+      get :show, { id: user.id }
+      expect(assigns(:user)).to eq(user)
+    end
+  end
 end
