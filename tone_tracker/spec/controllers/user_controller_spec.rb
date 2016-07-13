@@ -59,5 +59,23 @@ describe UsersController do
         expect(subject).to redirect_to(root_path)
       end
     end
+
+    context "when invalid params are passed" do
+
+    before :each do
+      post :create, { user: {
+        username: nil,
+        email: Faker::Internet.email,
+        password: Faker::Internet.password } }
+    end
+
+      it "assigns a newly created but unsaved user as @user" do
+        expect(assigns(:user)).to be_an_instance_of(User)
+      end
+
+      it "re-renders the 'new' template" do
+        expect(subject).to render_template(:new)
+      end
+    end
   end
 end
